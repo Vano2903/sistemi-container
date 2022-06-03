@@ -42,6 +42,11 @@ func run() {
 		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID,
 	}
 
+	//vediamo che tutto funziona ma continuiamo a vedere gli stessi processi della macchina host
+	//ma questa volta il problema non sono i namespace ma il modo in cui guardiamo i processi in esecuzione
+	//il comando `ps` per trovare i processi guarda nella cartella /proc quindi per far si che tutto funzioni
+	//dobbiamo dare una cartella /proc proprietaria (la cartella con tutte le informazioni di tutti i processi) 
+
 	//esegui il comando
 	must(cmd.Run())
 }

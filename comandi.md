@@ -2,9 +2,10 @@
     - creare il file di configuazione
     > runc spec
 
-    - installa il filesystem root
-	> mkdir rootfs
-    > docker export $(docker create busybox) | tar -C rootfs -xvf -
-
     - creare il docker
     > sudo runc create container
+
+    - estrarre tar gz
+    > tar -xvf ubuntu-focal-oci-amd64-root.tar.gz -C rootfs
+
+
