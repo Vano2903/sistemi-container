@@ -43,7 +43,9 @@ func child() {
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-
+	checkErr(syscall.Chroot("/home/copy-filesystem"))
+	checkErr(os.Chdir("/"))
+	checkErr(syscall.Mount("proc", "proc","proc", 0, ""))
 	checkErr(cmd.Run())
 }
 
